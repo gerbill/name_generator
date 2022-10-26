@@ -1,23 +1,77 @@
-import logo from './logo.svg';
-import './App.css';
+import Field from "./components/Field";
+import { useState } from "react";
+import MaleFemale from "./components/MaleFemale";
 
 function App() {
+  const [isMale, setIsMale] = useState(true);
+  const [words, setWords] = useState({});
+  console.log(words);
+
+  const showGenderField = () => {
+    if (isMale)
+      return (
+        <Field
+          dataType={"male_names"}
+          fieldName={"Male Name"}
+          isName={true}
+          words={words}
+          setWords={setWords}
+        />
+      );
+    return (
+      <Field
+        dataType={"female_names"}
+        fieldName={"Female Name"}
+        isName={true}
+        words={words}
+        setWords={setWords}
+      />
+    );
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form action="">
+        <div className="mb-3">
+          <Field
+            dataType={"nouns"}
+            fieldName={"Noun"}
+            isName={false}
+            words={words}
+            setWords={setWords}
+          />
+          <Field
+            dataType={"adjectives"}
+            fieldName={"Adjective"}
+            isName={false}
+            words={words}
+            setWords={setWords}
+          />
+          <Field
+            dataType={"last_names"}
+            fieldName={"Last Name"}
+            isName={true}
+            words={words}
+            setWords={setWords}
+          />
+          <MaleFemale isMale={isMale} setIsMale={setIsMale} />
+          <Field
+            dataType={"male_names"}
+            fieldName={"Male Name"}
+            isName={true}
+            words={words}
+            setWords={setWords}
+          />
+          <Field
+            dataType={"female_names"}
+            fieldName={"Female Name"}
+            isName={true}
+            words={words}
+            setWords={setWords}
+          />
+          {/*{showGenderField()}*/}
+        </div>
+      </form>
     </div>
   );
 }
