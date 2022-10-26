@@ -2,3 +2,29 @@ body {
   background-color: #17212c;
   color: azure;
 }
+
+.react-scrollable-list {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 300px;
+  /*width: 400px;*/
+  overflow-y: scroll;
+  border: #ddd solid 1px;
+}
+
+.react-scrollable-list-item {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 30px;
+  padding: 5px;
+  background-color: #f2f2f2;
+  border-bottom: #ddd solid 1px;
+  color: #17212c;
+}
+
+.react-scrollable-list-item:hover {
+  background-color: #17212c;
+  color: azure;
+}

@@ -18,14 +18,14 @@ function WordBarrel({ type, size, initPosition }) {
     wordsLength = words.length;
     return words.slice(position - size, position + size + 1).map((w) => {
       return (
-        <option value={w} key={w}>
+        <option value={w} key={w} onFocus={() => setPosition(position + 1)}>
           {w}
         </option>
       );
     });
   };
 
-  const handleScroll = (e) => {
+  const handleWheel = (e) => {
     const scrollDown = e.deltaY < 0;
     if (scrollDown && position <= size) return;
     if (!scrollDown && position >= wordsLength - size - 1) return;
@@ -53,10 +53,10 @@ function WordBarrel({ type, size, initPosition }) {
           className="form-select"
           aria-label="word picker"
           disabled={type === null}
-          size={size * 2 + 1}
+          size={size * 2 - 1}
           style={{ overflow: "hidden" }}
           onChange={handleChange}
-          onWheel={handleScroll}
+          onWheel={handleWheel}
         >
           {showWords()}
         </select>

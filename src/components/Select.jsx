@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import WordBarrel from "./WordBarrel";
+// import WordBarrel from "./WordBarrel";
+import WordBarrelNPM from "./WordBarrelNPM";
 import DB from "../db.json";
 
 function Select({ initType }) {
@@ -33,7 +34,7 @@ function Select({ initType }) {
         <option value={null}>Select Word Type</option>
         {getTypeOptions()}
       </select>
-      <WordBarrel type={type} size={5} initPosition={5} />
+      <WordBarrelNPM type={type} size={11} initPosition={100} />
     </>
   );
 }
