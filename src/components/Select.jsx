@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import WordBarrel from "./WordBarrel";
 import WordBarrelNPM from "./WordBarrelNPM";
 import DB from "../db.json";
 
@@ -29,6 +28,7 @@ function Select({ initType }) {
       <select
         className="form-select mb-2"
         aria-label="Word Type Select"
+        value={type}
         onChange={handleChangeType}
       >
         <option value={null}>Select Word Type</option>
