@@ -10,12 +10,10 @@ export default class ScrollableList extends Component {
     super(props);
     this.state = { scrollPosition: 0 };
     this.list = null;
+    this.selectedId = this.props.selectedId;
 
     this.setListRef = (element) => {
       this.list = element;
-    };
-    this.onItemClick = (element) => {
-      console.log("clicked on list item!");
     };
 
     this.updateScrollPosition = this.updateScrollPosition.bind(this);
@@ -60,9 +58,14 @@ export default class ScrollableList extends Component {
         />
         {this.props.listItems.slice(startPosition, endPosition).map((item) => (
           <div
-            className="react-scrollable-list-item"
+            className={`react-scrollable-list-item${
+              item.id === this.selectedId ? " selected-item" : ""
+            }`}
             key={"list-item-" + item.id}
-            onClick={() => this.props.onItemClick(item.content)}
+            onClick={() => {
+              this.selectedId = item.id;
+              return this.props.onItemClick(item);
+            }}
           >
             {item.content}
           </div>

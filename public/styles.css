@@ -11,6 +11,9 @@ body {
   /*width: 400px;*/
   overflow-y: scroll;
   border: #ddd solid 1px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  color: #17212c;
 }
 
 .react-scrollable-list-item {
@@ -25,6 +28,11 @@ body {
 }
 
 .react-scrollable-list-item:hover {
+  background-color: #394f69;
+  color: azure;
+}
+
+.selected-item {
   background-color: #17212c;
   color: azure;
 }

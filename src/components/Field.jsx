@@ -49,5 +49,3 @@ function Field({ dataType, fieldName, isName, words, setWords }) {
     </>
   );
 }
-
-export default Field;
